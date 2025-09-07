@@ -6,6 +6,8 @@ Test Suite for Day Supply National
 Comprehensive testing framework for the prescription data extraction system.
 """
 
+from typing import Dict, List
+
 import pandas as pd
 
 from .extractor import PrescriptionDataExtractor, PrescriptionInput
