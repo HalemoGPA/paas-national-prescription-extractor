@@ -16,7 +16,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="paas-national-prescription-extractor",
-    version="2.0.6",
+    version="2.0.7",
     author="Abdulhaleem Osama",
     author_email="haleemborham3@gmail.com",
     description="PAAS National - Comprehensive prescription data extraction and standardization system for day supply, quantity, and sig processing",
@@ -41,13 +41,13 @@ setup(
     install_requires=requirements,
     include_package_data=True,
     package_data={
-        "day_supply_national": ["data/*.csv"],
+        "paas_extractor": ["data/*.csv"],
     },
     entry_points={
         "console_scripts": [
-            "paas-extractor=day_supply_national.cli:main",
-            "paas-demo=day_supply_national.demo:main",
-            "paas-test=day_supply_national.test_suite:main",
+            "paas-extractor=paas_extractor.cli:main",
+            "paas-demo=paas_extractor.demo:main",
+            "paas-test=paas_extractor.test_suite:main",
         ],
     },
     keywords="pharmacy prescription healthcare paas day-supply quantity sig medication extraction",

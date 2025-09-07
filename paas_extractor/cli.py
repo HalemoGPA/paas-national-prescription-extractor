@@ -6,7 +6,9 @@ Command Line Interface for Day Supply National
 Interactive prescription processing interface.
 """
 
+import argparse
 import json
+import sys
 from datetime import datetime
 
 from .extractor import PrescriptionDataExtractor, PrescriptionInput
@@ -72,7 +74,44 @@ def save_results_to_file(results, filename=None):
 
 
 def main():
-    """Main interactive interface"""
+    """Main interface with argument parsing"""
+    parser = argparse.ArgumentParser(
+        description="PAAS National Prescription Data Extractor",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  paas-extractor                    # Interactive mode
+  paas-extractor --help            # Show this help
+  paas-extractor --version         # Show version
+        """
+    )
+    
+    parser.add_argument(
+        "--version", 
+        action="version", 
+        version="PAAS National Prescription Extractor v2.0.7"
+    )
+    
+    parser.add_argument(
+        "--non-interactive",
+        action="store_true",
+        help="Exit immediately (for CI/CD environments)"
+    )
+    
+    args = parser.parse_args()
+    
+    # Handle non-interactive mode (for CI/CD)
+    if args.non_interactive:
+        print("PAAS National Prescription Extractor v2.0.7")
+        print("Non-interactive mode - exiting successfully")
+        return
+    
+    # Check if running in non-interactive environment
+    if not sys.stdin.isatty():
+        print("PAAS National Prescription Extractor v2.0.7")
+        print("Detected non-interactive environment - use --help for options")
+        return
+
     print("=" * 60)
     print("PAAS NATIONAL - PRESCRIPTION DATA EXTRACTOR")
     print("Interactive Processing Interface")

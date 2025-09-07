@@ -103,7 +103,7 @@ class PrescriptionDataExtractor:
         try:
             if files is not None:
                 # Modern approach using importlib.resources (Python 3.9+)
-                data_files = files("day_supply_national") / "data" / filename
+                data_files = files("paas_extractor") / "data" / filename
                 with data_files.open("r") as f:
                     return pd.read_csv(f)
             else:
@@ -111,7 +111,7 @@ class PrescriptionDataExtractor:
                 import pkg_resources
 
                 data_path = pkg_resources.resource_filename(
-                    "day_supply_national", f"data/{filename}"
+                    "paas_extractor", f"data/{filename}"
                 )
                 return pd.read_csv(data_path)
         except Exception as e:

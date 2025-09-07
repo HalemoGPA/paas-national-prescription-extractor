@@ -34,7 +34,7 @@ class ComprehensiveTestSuite:
             import pkg_resources
 
             data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/nasal_inhalers.csv"
+                "paas_extractor", "data/nasal_inhalers.csv"
             )
             df = pd.read_csv(data_path)
         except Exception:
@@ -65,7 +65,7 @@ class ComprehensiveTestSuite:
             import pkg_resources
 
             data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/oral_inhaler_products.csv"
+                "paas_extractor", "data/oral_inhaler_products.csv"
             )
             df = pd.read_csv(data_path)
         except Exception:
@@ -94,7 +94,7 @@ class ComprehensiveTestSuite:
             import pkg_resources
 
             data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/insulin_products.csv"
+                "paas_extractor", "data/insulin_products.csv"
             )
             df = pd.read_csv(data_path)
         except Exception:

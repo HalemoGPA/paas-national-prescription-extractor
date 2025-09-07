@@ -33,32 +33,32 @@ jobs:
     - name: Lint with flake8
       run: |
         # Stop the build if there are Python syntax errors or undefined names
-        flake8 day_supply_national --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 paas_extractor --count --select=E9,F63,F7,F82 --show-source --statistics
         # Exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 day_supply_national --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 paas_extractor --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
     - name: Check code formatting with black
       run: |
-        black --check day_supply_national
+        black --check paas_extractor
 
     - name: Check import sorting with isort
       run: |
-        isort --profile black --check-only day_supply_national
+        isort --profile black --check-only paas_extractor
 
     - name: Test package import
       run: |
-        python -c "from day_supply_national import PrescriptionDataExtractor, PrescriptionInput; print('Package import successful!')"
+        python -c "from paas_extractor import PrescriptionDataExtractor, PrescriptionInput; print('Package import successful!')"
 
     - name: Test CLI commands
       run: |
         paas-demo --help || echo "Demo command available"
         paas-test --help || echo "Test command available"
-        paas-extractor --help || echo "Extractor command available"
+        paas-extractor --help
 
     - name: Run comprehensive test suite
       run: |
         python -c "
-        from day_supply_national.test_suite import ComprehensiveTestSuite
+        from paas_extractor.test_suite import ComprehensiveTestSuite
         suite = ComprehensiveTestSuite()
         results = suite.run_all_tests()
         print(f'Tests: {results[\"total_tests\"]}, Passed: {results[\"passed\"]}, Failed: {results[\"failed\"]}')
