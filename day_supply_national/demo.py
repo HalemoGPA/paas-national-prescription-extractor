@@ -21,17 +21,17 @@ def print_separator(title):
 def print_result(result, case_num):
     """Print formatted result"""
     print(f"\n--- Case {case_num}: {result.original_drug_name} ---")
-    print(f"✓ Matched: {result.matched_drug_name}")
-    print(f"✓ Type: {result.medication_type.value.replace('_', ' ').title()}")
-    print(f"✓ Confidence: {result.confidence_score:.1%}")
-    print(f"✓ Quantity: {result.corrected_quantity}")
-    print(f"✓ Day Supply: {result.calculated_day_supply} days")
-    print(f"✓ Standardized Sig: {result.standardized_sig}")
+    print(f"Matched: {result.matched_drug_name}")
+    print(f"Type: {result.medication_type.value.replace('_', ' ').title()}")
+    print(f"Confidence: {result.confidence_score:.1%}")
+    print(f"Quantity: {result.corrected_quantity}")
+    print(f"Day Supply: {result.calculated_day_supply} days")
+    print(f"Standardized Sig: {result.standardized_sig}")
 
     if result.warnings:
-        print(f"⚠ Warnings:")
+        print(f"Warnings:")
         for warning in result.warnings:
-            print(f"  • {warning}")
+            print(f"  - {warning}")
 
 
 def main():
@@ -45,9 +45,9 @@ def main():
     )
 
     # Initialize system
-    print("\n🔧 Initializing extraction system...")
+    print("\nInitializing extraction system...")
     extractor = PrescriptionDataExtractor()
-    print("✅ System ready!")
+    print("System ready!")
 
     # Test cases covering all major scenarios
     test_cases = [
@@ -132,10 +132,10 @@ def main():
     high_confidence = len([r for r in results if r.confidence_score >= 0.8])
     with_warnings = len([r for r in results if r.warnings])
 
-    print(f"📊 STATISTICS:")
+    print(f"STATISTICS:")
     print(f"   Total Prescriptions Processed: {total_prescriptions}")
     print(
-        f"   High Confidence Matches (≥80%): {high_confidence} ({high_confidence/total_prescriptions:.1%})"
+        f"   High Confidence Matches (>=80%): {high_confidence} ({high_confidence/total_prescriptions:.1%})"
     )
     print(
         f"   Prescriptions with Warnings: {with_warnings} ({with_warnings/total_prescriptions:.1%})"
@@ -147,7 +147,7 @@ def main():
         med_type = result.medication_type.value.replace("_", " ").title()
         type_counts[med_type] = type_counts.get(med_type, 0) + 1
 
-    print(f"\n📈 MEDICATION TYPE DISTRIBUTION:")
+    print(f"\nMEDICATION TYPE DISTRIBUTION:")
     for med_type, count in sorted(type_counts.items()):
         print(f"   {med_type}: {count}")
 
@@ -155,7 +155,7 @@ def main():
     day_supplies = [r.calculated_day_supply for r in results]
     avg_day_supply = sum(day_supplies) / len(day_supplies)
 
-    print(f"\n📅 DAY SUPPLY ANALYSIS:")
+    print(f"\nDAY SUPPLY ANALYSIS:")
     print(f"   Average Day Supply: {avg_day_supply:.1f} days")
     print(f"   Range: {min(day_supplies)} - {max(day_supplies)} days")
 
@@ -183,15 +183,15 @@ def main():
         json.dump(serializable_results, f, indent=2)
 
     print_separator("DEMO COMPLETE")
-    print(f"✅ Successfully processed {total_prescriptions} prescriptions")
-    print(f"📁 Detailed results saved to: {filename}")
-    print("\n🎯 KEY ACHIEVEMENTS:")
-    print("   ✓ Intelligent drug name matching with fuzzy logic")
-    print("   ✓ Medication type identification and classification")
-    print("   ✓ Accurate day supply calculations")
-    print("   ✓ Standardized sig/directions formatting")
-    print("   ✓ Zero warnings - clean processing")
-    print("\n🚀 The system is ready for production use!")
+    print(f"Successfully processed {total_prescriptions} prescriptions")
+    print(f"Detailed results saved to: {filename}")
+    print("\nKEY ACHIEVEMENTS:")
+    print("   - Intelligent drug name matching with fuzzy logic")
+    print("   - Medication type identification and classification")
+    print("   - Accurate day supply calculations")
+    print("   - Standardized sig/directions formatting")
+    print("   - Zero warnings - clean processing")
+    print("\nThe system is ready for production use!")
 
 
 if __name__ == "__main__":

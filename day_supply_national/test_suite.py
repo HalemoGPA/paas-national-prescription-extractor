@@ -263,9 +263,9 @@ class ComprehensiveTestSuite:
 
         # Print summary
         print(f"\n{category} Results:")
-        print(f"  ✓ Successful: {results['successful']}")
-        print(f"  ⚠ Warnings: {results['warnings']}")
-        print(f"  ✗ Errors: {results['errors']}")
+        print(f"  Successful: {results['successful']}")
+        print(f"  Warnings: {results['warnings']}")
+        print(f"  Errors: {results['errors']}")
 
         return results
 
@@ -316,9 +316,9 @@ class ComprehensiveTestSuite:
 
         if total > 0:
             print(f"\nTotal Tests Run: {total}")
-            print(f"✓ Passed: {passed} ({passed/total*100:.1f}%)")
-            print(f"⚠ Warnings: {warnings} ({warnings/total*100:.1f}%)")
-            print(f"✗ Failed: {failed} ({failed/total*100:.1f}%)")
+            print(f"Passed: {passed} ({passed/total*100:.1f}%)")
+            print(f"Warnings: {warnings} ({warnings/total*100:.1f}%)")
+            print(f"Failed: {failed} ({failed/total*100:.1f}%)")
         else:
             print("\nNo tests were run.")
 
@@ -331,7 +331,7 @@ class ComprehensiveTestSuite:
                     f"  Success Rate: {results['successful']/results['total']*100:.1f}%"
                 )
                 if results["errors"] > 0:
-                    print(f"  ⚠ Errors: {results['errors']}")
+                    print(f"  Errors: {results['errors']}")
 
 
 def main():
@@ -346,16 +346,16 @@ def main():
     print("=" * 80)
 
     if results["failed"] > 0:
-        print("\n⚠️  Some tests failed. Review the results for details.")
+        print("\nSome tests failed. Review the results for details.")
         print("Common issues to check:")
         print("- Drug names not in database")
         print("- Unusual dosing patterns")
         print("- Edge cases that need special handling")
     else:
-        print("\n✅ All tests passed successfully!")
+        print("\nAll tests passed successfully!")
 
     if results["warnings"] > 0:
-        print(f"\n⚠️  {results['warnings']} warnings detected")
+        print(f"\n{results['warnings']} warnings detected")
         print("Review warnings to ensure they are expected")
 
 

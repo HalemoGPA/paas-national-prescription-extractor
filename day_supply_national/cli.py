@@ -82,7 +82,7 @@ def main():
     extractor = PrescriptionDataExtractor()
     results = []
 
-    print("✓ System ready!")
+    print("System ready!")
     print("\nInstructions:")
     print("- Enter prescription details when prompted")
     print("- Type 'quit' or 'exit' to finish")
