@@ -98,6 +98,18 @@ Examples:
         help="Exit immediately (for CI/CD environments)",
     )
 
+    parser.add_argument(
+        "--llm-api-key",
+        type=str,
+        help="Optional LLM API key for enhanced sig parsing (OpenAI, Gemini, etc.)",
+    )
+
+    parser.add_argument(
+        "--llm-base-url",
+        type=str,
+        help="Optional LLM base URL (defaults to OpenAI API)",
+    )
+
     args = parser.parse_args()
 
     # Handle non-interactive mode (for CI/CD)
@@ -118,7 +130,13 @@ Examples:
     print("=" * 60)
     print("\nInitializing system...")
 
-    extractor = PrescriptionDataExtractor()
+    # Initialize extractor with optional LLM support
+    extractor = PrescriptionDataExtractor(
+        llm_api_key=args.llm_api_key, llm_base_url=args.llm_base_url
+    )
+
+    if args.llm_api_key:
+        print("LLM enhancement enabled for improved sig parsing")
     results = []
 
     print("System ready!")

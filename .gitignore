@@ -143,3 +143,5 @@ demo_results.json
 # Test results
 test_results_*.json
 problematic_cases_*.json
+draft**py
+**charts

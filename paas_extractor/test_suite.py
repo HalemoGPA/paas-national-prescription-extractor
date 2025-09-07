@@ -128,6 +128,25 @@ class ComprehensiveTestSuite:
     def generate_edge_cases(self) -> List[PrescriptionInput]:
         """Generate edge cases and challenging scenarios"""
         edge_cases = [
+            # Common brand names that should match
+            PrescriptionInput(
+                "Flonase", "1", "2 sprays each nostril bid"
+            ),  # Should match Fluticasone propionate
+            PrescriptionInput(
+                "Nasonex", "1", "1 spray per nostril daily"
+            ),  # Should match Mometasone furoate
+            PrescriptionInput(
+                "Nasacort", "2", "2 sprays each nostril daily"
+            ),  # Should match Triamcinolone acetonide
+            PrescriptionInput(
+                "Astelin", "1", "1 spray each nostril bid"
+            ),  # Should match Azelastine
+            PrescriptionInput(
+                "ProAir", "2", "2 puffs q4h prn"
+            ),  # Should match Albuterol HFA
+            PrescriptionInput(
+                "Albuterol", "1", "2 puffs every 4 hours"
+            ),  # Generic name
             # Misspellings
             PrescriptionInput(
                 "Fluonase", "1", "2 sprays each nostril bid"
