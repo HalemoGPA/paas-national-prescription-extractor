@@ -22,6 +22,17 @@ from typing import Dict, List, Optional, Tuple, Union
 
 import pandas as pd
 
+try:
+    from importlib.resources import files
+except ImportError:
+    # Python < 3.9 fallback
+    try:
+        import pkg_resources
+        files = None
+    except ImportError:
+        pkg_resources = None
+        files = None
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -86,44 +97,34 @@ class PrescriptionDataExtractor:
         # Create comprehensive drug name mapping
         self.drug_database = self._create_drug_database()
 
+    def _load_data_file(self, filename: str) -> pd.DataFrame:
+        """Load data file using modern importlib.resources or fallback to pkg_resources"""
+        try:
+            if files is not None:
+                # Modern approach using importlib.resources (Python 3.9+)
+                data_files = files("day_supply_national") / "data" / filename
+                with data_files.open('r') as f:
+                    return pd.read_csv(f)
+            else:
+                # Fallback to pkg_resources for older Python versions
+                import pkg_resources
+                data_path = pkg_resources.resource_filename("day_supply_national", f"data/{filename}")
+                return pd.read_csv(data_path)
+        except Exception as e:
+            logger.warning(f"Could not load {filename}: {e}")
+            return pd.DataFrame()
+
     def _load_nasal_inhalers(self) -> pd.DataFrame:
         """Load nasal inhaler data"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/nasal_inhalers.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load nasal inhalers data: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("nasal_inhalers.csv")
 
     def _load_oral_inhalers(self) -> pd.DataFrame:
         """Load oral inhaler data"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/oral_inhaler_products.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load oral inhalers data: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("oral_inhaler_products.csv")
 
     def _load_insulin_products(self) -> pd.DataFrame:
         """Load insulin products data"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/insulin_products.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load insulin products data: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("insulin_products.csv")
 
     def _load_biologic_injectables(self) -> pd.DataFrame:
         """Load biologic injectable data"""

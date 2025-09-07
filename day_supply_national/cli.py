@@ -23,9 +23,9 @@ def format_result(result):
         f"Medication Type:    {result.medication_type.value.replace('_', ' ').title()}"
     )
     print(f"Match Confidence:   {result.confidence_score:.1%}")
-    print(f"\n{'─'*40}")
+    print(f"\n{'-'*40}")
     print(f"EXTRACTED PRESCRIPTION DATA:")
-    print(f"{'─'*40}")
+    print(f"{'-'*40}")
     print(f"Quantity:          {result.corrected_quantity}")
     print(f"Day Supply:        {result.calculated_day_supply} days")
     print(f"Standardized Sig:  {result.standardized_sig}")
@@ -90,7 +90,7 @@ def main():
     print("- Type 'help' for more options")
 
     while True:
-        print("\n" + "─" * 60)
+        print("\n" + "-" * 60)
         choice = input(
             "\nChoose an option:\n1. Enter single prescription\n2. Run batch test\n3. View saved results\n4. Help\n5. Quit\n\nChoice (1-5): "
         ).strip()
@@ -172,11 +172,11 @@ def main():
                 continue
 
             print(f"\n📊 RESULTS SUMMARY ({len(results)} prescriptions processed)")
-            print("─" * 80)
+            print("-" * 80)
             print(
                 f"{'#':<3} {'Drug Name':<25} {'Type':<15} {'Qty':<8} {'Days':<6} {'Confidence':<10}"
             )
-            print("─" * 80)
+            print("-" * 80)
 
             for i, result in enumerate(results, 1):
                 drug_name = result.original_drug_name[:24]
@@ -195,30 +195,30 @@ def main():
 
         elif choice == "4":
             # Help
-            print("\n📖 HELP INFORMATION")
-            print("─" * 40)
+            print("\nHELP INFORMATION")
+            print("-" * 40)
             print("This system processes prescription data and provides:")
-            print("• Accurate quantity calculations")
-            print("• Precise day supply estimates")
-            print("• Standardized sig/directions")
-            print("• Medication type identification")
+            print("- Accurate quantity calculations")
+            print("- Precise day supply estimates")
+            print("- Standardized sig/directions")
+            print("- Medication type identification")
             print("\nSupported medication types:")
-            print("• Nasal inhalers (sprays)")
-            print("• Oral inhalers (HFA, Diskus, etc.)")
-            print("• Insulin products (vials, pens)")
-            print("• Injectable medications")
-            print("• Eye drops")
-            print("• Topical medications")
+            print("- Nasal inhalers (sprays)")
+            print("- Oral inhalers (HFA, Diskus, etc.)")
+            print("- Insulin products (vials, pens)")
+            print("- Injectable medications")
+            print("- Eye drops")
+            print("- Topical medications")
             print("\nTips for best results:")
-            print("• Use complete drug names when possible")
-            print("• Include strength information")
-            print("• Provide clear dosing instructions")
+            print("- Use complete drug names when possible")
+            print("- Include strength information")
+            print("- Provide clear dosing instructions")
 
         else:
-            print("❌ Invalid choice. Please select 1-5.")
+            print("Invalid choice. Please select 1-5.")
 
     if results:
-        print(f"\n🎯 SESSION COMPLETE")
+        print(f"\nSESSION COMPLETE")
         print(f"Processed {len(results)} prescriptions total.")
         final_save = input("Save all results before exiting? (y/n): ").strip().lower()
         if final_save in ["y", "yes"]:
