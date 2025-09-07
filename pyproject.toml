@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "day-supply-national"
+version = "2.0.0"
+description = "A comprehensive prescription data extraction and standardization system"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Day Supply National Team", email = "support@daysupplynational.com"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Healthcare Industry",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+keywords = ["pharmacy", "prescription", "healthcare", "day-supply", "medication"]
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "python-dateutil>=2.8.0",
+    "pytz>=2021.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/daysupplynational/prescription-extractor"
+Documentation = "https://github.com/daysupplynational/prescription-extractor/wiki"
+Repository = "https://github.com/daysupplynational/prescription-extractor"
+"Bug Reports" = "https://github.com/daysupplynational/prescription-extractor/issues"
+
+[project.scripts]
+day-supply-extractor = "day_supply_national.cli:main"
+day-supply-demo = "day_supply_national.demo:main"
+day-supply-test = "day_supply_national.test_suite:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["day_supply_national*"]
+
+[tool.setuptools.package-data]
+day_supply_national = ["data/*.csv"]
