@@ -89,7 +89,7 @@ Examples:
     parser.add_argument(
         "--version",
         action="version",
-        version="PAAS National Prescription Extractor v2.0.7",
+        version="PAAS National Prescription Extractor v2.0.8",
     )
 
     parser.add_argument(
@@ -102,13 +102,13 @@ Examples:
 
     # Handle non-interactive mode (for CI/CD)
     if args.non_interactive:
-        print("PAAS National Prescription Extractor v2.0.7")
+        print("PAAS National Prescription Extractor v2.0.8")
         print("Non-interactive mode - exiting successfully")
         return
 
     # Check if running in non-interactive environment
     if not sys.stdin.isatty():
-        print("PAAS National Prescription Extractor v2.0.7")
+        print("PAAS National Prescription Extractor v2.0.8")
         print("Detected non-interactive environment - use --help for options")
         return
 
