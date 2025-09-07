@@ -43,7 +43,7 @@ jobs:
 
     - name: Check import sorting with isort
       run: |
-        isort --check-only day_supply_national
+        isort --profile black --check-only day_supply_national
 
     - name: Test package import
       run: |
