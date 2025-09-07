@@ -137,36 +137,60 @@ class ComprehensiveTestSuite:
             ),  # Albuterol misspelled
             PrescriptionInput("Lantis", "3", "25 units qhs"),  # Lantus misspelled
             # Generic names - Insulin Products (testing Proper_Name alternatives)
-            PrescriptionInput("insulin glargine", "5", "inject 30 units at bedtime"),  # Lantus generic
-            PrescriptionInput("insulin lispro", "3", "15 units before meals"),  # Humalog generic
+            PrescriptionInput(
+                "insulin glargine", "5", "inject 30 units at bedtime"
+            ),  # Lantus generic
+            PrescriptionInput(
+                "insulin lispro", "3", "15 units before meals"
+            ),  # Humalog generic
             PrescriptionInput("insulin aspart", "6", "8 units tid"),  # NovoLog generic
-            PrescriptionInput("insulin detemir", "2", "20 units daily"),  # Levemir generic
-            PrescriptionInput("insulin degludec", "3", "25 units daily"),  # Tresiba generic
-            PrescriptionInput("regular insulin human", "1", "10 units qid"),  # Humulin R generic
-            PrescriptionInput("insulin isophane human", "2", "15 units bid"),  # Humulin N generic
-            PrescriptionInput("insulin glulisine", "4", "12 units tid"),  # Apidra generic
-            
+            PrescriptionInput(
+                "insulin detemir", "2", "20 units daily"
+            ),  # Levemir generic
+            PrescriptionInput(
+                "insulin degludec", "3", "25 units daily"
+            ),  # Tresiba generic
+            PrescriptionInput(
+                "regular insulin human", "1", "10 units qid"
+            ),  # Humulin R generic
+            PrescriptionInput(
+                "insulin isophane human", "2", "15 units bid"
+            ),  # Humulin N generic
+            PrescriptionInput(
+                "insulin glulisine", "4", "12 units tid"
+            ),  # Apidra generic
             # Generic names - Biologic Injectables (testing Proper_Name alternatives)
-            PrescriptionInput("adalimumab", "2", "inject every other week"),  # Humira generic
-            PrescriptionInput("etanercept", "4", "inject twice weekly"),  # Enbrel generic
-            PrescriptionInput("infliximab", "1", "infuse every 8 weeks"),  # Remicade generic
+            PrescriptionInput(
+                "adalimumab", "2", "inject every other week"
+            ),  # Humira generic
+            PrescriptionInput(
+                "etanercept", "4", "inject twice weekly"
+            ),  # Enbrel generic
+            PrescriptionInput(
+                "infliximab", "1", "infuse every 8 weeks"
+            ),  # Remicade generic
             PrescriptionInput("rituximab", "2", "infuse monthly"),  # Rituxan generic
             PrescriptionInput("tocilizumab", "4", "inject weekly"),  # Actemra generic
-            
             # Generic names - Non-biologic Injectables (testing Proper_Name alternatives)
-            PrescriptionInput("aripiprazole ER injection", "1", "inject monthly"),  # Abilify Maintena generic
-            PrescriptionInput("haloperidol decanoate", "1", "inject monthly"),  # Haldol Decanoate generic
-            PrescriptionInput("fluphenazine decanoate", "2", "inject every 2 weeks"),  # Prolixin Decanoate generic
-            
+            PrescriptionInput(
+                "aripiprazole ER injection", "1", "inject monthly"
+            ),  # Abilify Maintena generic
+            PrescriptionInput(
+                "haloperidol decanoate", "1", "inject monthly"
+            ),  # Haldol Decanoate generic
+            PrescriptionInput(
+                "fluphenazine decanoate", "2", "inject every 2 weeks"
+            ),  # Prolixin Decanoate generic
             # Analog names - Diabetic Injectables (testing Analog_Name alternatives)
             PrescriptionInput("lixisenatide", "1", "inject daily"),  # Adlyxin analog
             PrescriptionInput("exenatide", "1", "inject twice daily"),  # Byetta analog
-            PrescriptionInput("exenatide extended release", "4", "inject weekly"),  # Bydureon analog
+            PrescriptionInput(
+                "exenatide extended release", "4", "inject weekly"
+            ),  # Bydureon analog
             PrescriptionInput("tirzepatide", "4", "inject weekly"),  # Mounjaro analog
             PrescriptionInput("semaglutide", "1", "inject weekly"),  # Ozempic analog
             PrescriptionInput("dulaglutide", "4", "inject weekly"),  # Trulicity analog
             PrescriptionInput("liraglutide", "2", "inject daily"),  # Victoza analog
-            
             # Other generic names
             PrescriptionInput(
                 "fluticasone nasal spray", "2", "2 sprays each nostril daily"
