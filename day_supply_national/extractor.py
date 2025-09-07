@@ -128,94 +128,31 @@ class PrescriptionDataExtractor:
 
     def _load_biologic_injectables(self) -> pd.DataFrame:
         """Load biologic injectable data"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/biologic_injectables.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load biologic injectables data: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("biologic_injectables.csv")
 
     def _load_nonbiologic_injectables(self) -> pd.DataFrame:
         """Load non-biologic injectable data"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/nonbiologic_injectables.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load non-biologic injectables data: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("nonbiologic_injectables.csv")
 
     def _load_eyedrop_guidelines(self) -> pd.DataFrame:
         """Load PBM eyedrop guidelines"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/pbm_eyedrop_guidelines.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load eyedrop guidelines: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("pbm_eyedrop_guidelines.csv")
 
     def _load_eyedrop_beyond_use(self) -> pd.DataFrame:
         """Load eyedrop beyond use dates"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/eyedrop_beyond_use_dates.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load eyedrop beyond use dates: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("eyedrop_beyond_use_dates.csv")
 
     def _load_ftu_dosing(self) -> pd.DataFrame:
         """Load FTU dosing guide"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/ftu_dosing_guide.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load FTU dosing guide: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("ftu_dosing_guide.csv")
 
     def _load_diabetic_injectables(self) -> pd.DataFrame:
         """Load injectable diabetic medications"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/injectable_diabetic_meds.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load diabetic injectables: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("injectable_diabetic_meds.csv")
 
     def _load_insulin_pen_increments(self) -> pd.DataFrame:
         """Load insulin pen dosing increments"""
-        try:
-            import pkg_resources
-
-            data_path = pkg_resources.resource_filename(
-                "day_supply_national", "data/insulin_pen_dosing_increments.csv"
-            )
-            return pd.read_csv(data_path)
-        except Exception as e:
-            logger.warning(f"Could not load insulin pen increments: {e}")
-            return pd.DataFrame()
+        return self._load_data_file("insulin_pen_dosing_increments.csv")
 
     def _create_drug_database(self) -> Dict[str, Dict]:
         """Create comprehensive drug name database for matching"""
