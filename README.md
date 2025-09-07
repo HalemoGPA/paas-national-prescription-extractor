@@ -8,7 +8,7 @@ A **production-ready Python package** for extracting, validating, and standardiz
 
 ## 🎯 Why PAAS National?
 
-**Perfect Reliability**: 100% success rate across 750+ test cases with zero warnings
+**Perfect Reliability**: 100% success rate across 381 test cases with zero warnings
 **Universal Coverage**: Supports 8+ medication categories with 1000+ drug database entries  
 **Production Ready**: Clean API, comprehensive documentation, and enterprise-grade error handling
 **Zero Maintenance**: No warnings to review, no edge cases to handle, no failures to debug
@@ -24,7 +24,7 @@ pip install paas-national-prescription-extractor
 ### Basic Usage
 
 ```python
-from day_supply_national import PrescriptionDataExtractor, PrescriptionInput
+from paas_extractor import PrescriptionDataExtractor, PrescriptionInput
 
 # Initialize the extractor
 extractor = PrescriptionDataExtractor()
@@ -229,7 +229,7 @@ Humulin R U-500: 5-unit increments
 ## 🧪 Testing & Validation
 
 ### Comprehensive Test Coverage
-- **750+ Test Cases**: Every drug in database tested
+- **381 Test Cases**: Every drug in database tested
 - **Edge Case Handling**: Misspellings, unusual quantities, complex sigs
 - **Regression Testing**: Automated validation of all scenarios
 - **Performance Testing**: Batch processing benchmarks
@@ -237,11 +237,11 @@ Humulin R U-500: 5-unit increments
 ### Quality Assurance
 ```bash
 # Run full test suite
-day-supply-test
+paas-test
 
 # Expected output:
-# Total Tests Run: 750+
-# ✓ Passed: 750+ (100.0%)
+# Total Tests Run: 381
+# ✓ Passed: 381 (100.0%)
 # ⚠ Warnings: 0 (0.0%)
 # ✗ Failed: 0 (0.0%)
 ```

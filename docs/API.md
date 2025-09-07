@@ -7,7 +7,7 @@
 The main class for processing prescription data.
 
 ```python
-from day_supply_national import PrescriptionDataExtractor
+from paas_extractor import PrescriptionDataExtractor
 
 extractor = PrescriptionDataExtractor()
 ```
@@ -26,7 +26,7 @@ Process a single prescription and return extracted data.
 
 **Example:**
 ```python
-from day_supply_national import PrescriptionInput
+from paas_extractor import PrescriptionInput
 
 prescription = PrescriptionInput(
     drug_name="Humalog KwikPen",

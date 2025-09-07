@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.8] - 2024-12-07
+
+### Added
+- Enhanced drug name recognition with multiple search fields
+- Support for searching drugs by Proprietary_Name, Proper_Name, and Analog_Name
+- Comprehensive test coverage for alternative drug names
+- Non-interactive CLI mode for CI/CD environments
+
+### Changed
+- **BREAKING**: Package folder renamed from `day_supply_national` to `paas_extractor`
+- **BREAKING**: Import path changed to `from paas_extractor import ...`
+- Maintainer email updated to `abdulhaleem@tjmlabs.com`
+- CLI now supports `--help`, `--version`, and `--non-interactive` flags
+- Modernized data loading with `importlib.resources` and `pkg_resources` fallback
+
+### Fixed
+- EOFError in CLI when run in non-interactive environments
+- GitHub Actions syntax errors in workflow files
+- Unicode encoding issues in Windows CI/CD environments
+- All flake8, black, and isort formatting issues
+- Deprecated GitHub Actions updated to latest versions
+
+### Removed
+- All Unicode emojis and box-drawing characters for cross-platform compatibility
+- Trailing whitespace and formatting inconsistencies
+
 ## [2.0.0] - 2024-12-07
 
 ### Added

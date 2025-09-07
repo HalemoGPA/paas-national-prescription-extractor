@@ -1,6 +1,6 @@
-# Contributing to Day Supply National
+# Contributing to PAAS National Prescription Extractor
 
-We welcome contributions to the Day Supply National prescription data extraction system! This document provides guidelines for contributing to the project.
+We welcome contributions to the PAAS National prescription data extraction system! This document provides guidelines for contributing to the project.
 
 ## 🚀 Getting Started
 
@@ -13,8 +13,8 @@ We welcome contributions to the Day Supply National prescription data extraction
 
 1. **Fork and Clone**
    ```bash
-   git clone https://github.com/yourusername/day-supply-national.git
-   cd day-supply-national
+   git clone https://github.com/yourusername/paas-national-prescription-extractor.git
+   cd paas-national-prescription-extractor
    ```
 
 2. **Create Virtual Environment**
@@ -31,8 +31,8 @@ We welcome contributions to the Day Supply National prescription data extraction
 
 4. **Verify Installation**
    ```bash
-   day-supply-demo  # Should run without errors
-   day-supply-test  # Should show 100% success rate
+   paas-demo  # Should run without errors
+   paas-test  # Should show 100% success rate
    ```
 
 ## 🛠️ Development Guidelines
@@ -47,7 +47,7 @@ We welcome contributions to the Day Supply National prescription data extraction
 - All new features must include tests
 - Maintain 100% success rate on existing tests
 - Add test cases for edge cases and error conditions
-- Run the full test suite before submitting: `day-supply-test`
+- Run the full test suite before submitting: `paas-test`
 
 ### Documentation
 - Update README.md for user-facing changes
@@ -74,7 +74,7 @@ For new features, please provide:
 ### 🔧 Code Contributions
 
 #### Adding New Medication Types
-1. Add CSV data file to `day_supply_national/data/`
+1. Add CSV data file to `paas_extractor/data/`
 2. Create loading method in `extractor.py`
 3. Add processing method for the medication type
 4. Update `MedicationType` enum
@@ -103,7 +103,7 @@ For new features, please provide:
 
 3. **Test Your Changes**
    ```bash
-   day-supply-test  # Must show 100% success
+   paas-test  # Must show 100% success
    python -m pytest  # If using pytest
    ```
 
@@ -246,7 +246,7 @@ Contributors will be recognized in:
 
 ## 🙏 Thank You
 
-Thank you for contributing to Day Supply National! Your contributions help improve prescription processing for pharmacies and healthcare systems worldwide.
+Thank you for contributing to PAAS National! Your contributions help improve prescription processing for pharmacies and healthcare systems worldwide.
 
 ---
 

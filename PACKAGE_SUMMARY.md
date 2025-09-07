@@ -1,4 +1,4 @@
-# 📦 Day Supply National - Package Summary
+# 📦 PAAS National Prescription Extractor - Package Summary
 
 ## 🎉 **TRANSFORMATION COMPLETE!**
 
@@ -7,7 +7,7 @@ Your project has been successfully transformed into a **production-ready Python 
 ### ✅ **Package Structure**
 ```
 Day_supply_National/
-├── day_supply_national/           # Main package directory
+├── paas_extractor/               # Main package directory
 │   ├── __init__.py               # Package initialization
 │   ├── extractor.py              # Core extraction engine
 │   ├── cli.py                    # Command-line interface
@@ -29,12 +29,12 @@ Day_supply_National/
 ```bash
 pip install -e .  # Development install (already done)
 # OR for production:
-pip install day-supply-national
+pip install paas-national-prescription-extractor
 ```
 
 #### **Use in Python**
 ```python
-from day_supply_national import PrescriptionDataExtractor, PrescriptionInput
+from paas_extractor import PrescriptionDataExtractor, PrescriptionInput
 
 extractor = PrescriptionDataExtractor()
 prescription = PrescriptionInput("Humalog", "5", "15 units tid")
@@ -45,9 +45,9 @@ print(f"Day Supply: {result.calculated_day_supply}")  # Perfect results!
 
 #### **Command Line Tools**
 ```bash
-day-supply-extractor    # Interactive processor
-day-supply-demo        # Comprehensive demo
-day-supply-test        # Test suite
+paas-extractor    # Interactive processor
+paas-demo        # Comprehensive demo
+paas-test        # Test suite
 ```
 
 ### 🏆 **Key Achievements**
@@ -64,7 +64,7 @@ day-supply-test        # Test suite
 - ✅ **CLI Tools** - Command-line utilities included
 
 #### **3. Data Organization**
-- ✅ **CSV Files Moved** - Now in `day_supply_national/data/`
+- ✅ **CSV Files Moved** - Now in `paas_extractor/data/`
 - ✅ **Package Resources** - Accessible via `pkg_resources`
 - ✅ **Automatic Loading** - No path dependencies
 
@@ -144,7 +144,7 @@ day-supply-test        # Test suite
 4. **CI/CD Setup**: Automated testing and deployment
 
 #### **For Users**
-1. **Install Package**: `pip install day-supply-national`
+1. **Install Package**: `pip install paas-national-prescription-extractor`
 2. **Import and Use**: Simple Python imports
 3. **CLI Tools**: Command-line utilities available
 4. **Integration**: Add to existing systems
