@@ -6,9 +6,10 @@ Command Line Interface for Day Supply National
 Interactive prescription processing interface.
 """
 
-from .extractor import PrescriptionDataExtractor, PrescriptionInput
 import json
 from datetime import datetime
+
+from .extractor import PrescriptionDataExtractor, PrescriptionInput
 
 
 def format_result(result):

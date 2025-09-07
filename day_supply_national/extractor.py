@@ -13,14 +13,15 @@ Author: AI Assistant
 Version: 2.0 - Perfect Edition
 """
 
-import pandas as pd
-import re
-from typing import Dict, List, Tuple, Optional, Union
-from dataclasses import dataclass
-from enum import Enum
-import math
-from difflib import SequenceMatcher
 import logging
+import math
+import re
+from dataclasses import dataclass
+from difflib import SequenceMatcher
+from enum import Enum
+from typing import Dict, List, Optional, Tuple, Union
+
+import pandas as pd
 
 # Configure logging
 logging.basicConfig(

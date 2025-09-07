@@ -32,10 +32,10 @@ License: MIT
 """
 
 from .extractor import (
-    PrescriptionDataExtractor,
-    PrescriptionInput,
     ExtractedData,
     MedicationType,
+    PrescriptionDataExtractor,
+    PrescriptionInput,
 )
 
 __version__ = "2.0.0"

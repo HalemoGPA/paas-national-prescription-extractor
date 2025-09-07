@@ -45,7 +45,7 @@ jobs:
         bandit -r day_supply_national -f json -o bandit-report.json || echo "Security scan completed"
 
     - name: Upload bandit report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: bandit-report

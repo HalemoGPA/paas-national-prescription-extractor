@@ -6,8 +6,9 @@ Demo module for Day Supply National
 Comprehensive demonstration of the prescription data extraction system.
 """
 
-from .extractor import PrescriptionDataExtractor, PrescriptionInput
 import json
+
+from .extractor import PrescriptionDataExtractor, PrescriptionInput
 
 
 def print_separator(title):
