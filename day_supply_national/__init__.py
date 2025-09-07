@@ -35,7 +35,7 @@ from .extractor import (
     PrescriptionDataExtractor,
     PrescriptionInput,
     ExtractedData,
-    MedicationType
+    MedicationType,
 )
 
 __version__ = "2.0.0"
@@ -45,7 +45,7 @@ __license__ = "MIT"
 
 __all__ = [
     "PrescriptionDataExtractor",
-    "PrescriptionInput", 
+    "PrescriptionInput",
     "ExtractedData",
     "MedicationType",
     "__version__",
