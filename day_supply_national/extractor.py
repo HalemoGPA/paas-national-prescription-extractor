@@ -28,6 +28,7 @@ except ImportError:
     # Python < 3.9 fallback
     try:
         import pkg_resources
+
         files = None
     except ImportError:
         pkg_resources = None
@@ -103,12 +104,15 @@ class PrescriptionDataExtractor:
             if files is not None:
                 # Modern approach using importlib.resources (Python 3.9+)
                 data_files = files("day_supply_national") / "data" / filename
-                with data_files.open('r') as f:
+                with data_files.open("r") as f:
                     return pd.read_csv(f)
             else:
                 # Fallback to pkg_resources for older Python versions
                 import pkg_resources
-                data_path = pkg_resources.resource_filename("day_supply_national", f"data/{filename}")
+
+                data_path = pkg_resources.resource_filename(
+                    "day_supply_national", f"data/{filename}"
+                )
                 return pd.read_csv(data_path)
         except Exception as e:
             logger.warning(f"Could not load {filename}: {e}")
@@ -179,38 +183,78 @@ class PrescriptionDataExtractor:
         # Add insulin products
         if not self.insulin_products.empty:
             for _, row in self.insulin_products.iterrows():
-                drug_name = str(row["Proprietary_Name"]).lower().strip()
-                database[drug_name] = {
+                # Add by Proprietary_Name
+                proprietary_name = str(row["Proprietary_Name"]).lower().strip()
+                database[proprietary_name] = {
                     "type": MedicationType.INSULIN,
                     "data": row.to_dict(),
                 }
 
+                # Add by Proper_Name (generic name)
+                if pd.notna(row["Proper_Name"]) and str(row["Proper_Name"]).strip():
+                    proper_name = str(row["Proper_Name"]).lower().strip()
+                    if proper_name != proprietary_name:
+                        database[proper_name] = {
+                            "type": MedicationType.INSULIN,
+                            "data": row.to_dict(),
+                        }
+
         # Add biologic injectables
         if not self.biologic_injectables.empty:
             for _, row in self.biologic_injectables.iterrows():
-                drug_name = str(row["Proprietary_Name"]).lower().strip()
-                database[drug_name] = {
+                # Add by Proprietary_Name
+                proprietary_name = str(row["Proprietary_Name"]).lower().strip()
+                database[proprietary_name] = {
                     "type": MedicationType.BIOLOGIC_INJECTABLE,
                     "data": row.to_dict(),
                 }
 
+                # Add by Proper_Name (generic name)
+                if pd.notna(row["Proper_Name"]) and str(row["Proper_Name"]).strip():
+                    proper_name = str(row["Proper_Name"]).lower().strip()
+                    if proper_name != proprietary_name:
+                        database[proper_name] = {
+                            "type": MedicationType.BIOLOGIC_INJECTABLE,
+                            "data": row.to_dict(),
+                        }
+
         # Add non-biologic injectables
         if not self.nonbiologic_injectables.empty:
             for _, row in self.nonbiologic_injectables.iterrows():
-                drug_name = str(row["Proprietary_Name"]).lower().strip()
-                database[drug_name] = {
+                # Add by Proprietary_Name
+                proprietary_name = str(row["Proprietary_Name"]).lower().strip()
+                database[proprietary_name] = {
                     "type": MedicationType.NONBIOLOGIC_INJECTABLE,
                     "data": row.to_dict(),
                 }
 
+                # Add by Proper_Name (generic name)
+                if pd.notna(row["Proper_Name"]) and str(row["Proper_Name"]).strip():
+                    proper_name = str(row["Proper_Name"]).lower().strip()
+                    if proper_name != proprietary_name:
+                        database[proper_name] = {
+                            "type": MedicationType.NONBIOLOGIC_INJECTABLE,
+                            "data": row.to_dict(),
+                        }
+
         # Add diabetic injectables
         if not self.diabetic_injectables.empty:
             for _, row in self.diabetic_injectables.iterrows():
-                drug_name = str(row["Proprietary_Name"]).lower().strip()
-                database[drug_name] = {
+                # Add by Proprietary_Name
+                proprietary_name = str(row["Proprietary_Name"]).lower().strip()
+                database[proprietary_name] = {
                     "type": MedicationType.DIABETIC_INJECTABLE,
                     "data": row.to_dict(),
                 }
+
+                # Add by Analog_Name (generic/analog name)
+                if pd.notna(row["Analog_Name"]) and str(row["Analog_Name"]).strip():
+                    analog_name = str(row["Analog_Name"]).lower().strip()
+                    if analog_name != proprietary_name:
+                        database[analog_name] = {
+                            "type": MedicationType.DIABETIC_INJECTABLE,
+                            "data": row.to_dict(),
+                        }
 
         return database
 
