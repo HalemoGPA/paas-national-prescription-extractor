@@ -70,7 +70,7 @@ jobs:
     - name: Test basic functionality
       run: |
         python -c "
-        from day_supply_national import PrescriptionDataExtractor, PrescriptionInput
+        from paas_extractor import PrescriptionDataExtractor, PrescriptionInput
         extractor = PrescriptionDataExtractor()
         prescription = PrescriptionInput('Humalog', '5', '15 units tid')
         result = extractor.extract_prescription_data(prescription)

@@ -83,29 +83,29 @@ Examples:
   paas-extractor                    # Interactive mode
   paas-extractor --help            # Show this help
   paas-extractor --version         # Show version
-        """
+        """,
     )
-    
+
     parser.add_argument(
-        "--version", 
-        action="version", 
-        version="PAAS National Prescription Extractor v2.0.7"
+        "--version",
+        action="version",
+        version="PAAS National Prescription Extractor v2.0.7",
     )
-    
+
     parser.add_argument(
         "--non-interactive",
         action="store_true",
-        help="Exit immediately (for CI/CD environments)"
+        help="Exit immediately (for CI/CD environments)",
     )
-    
+
     args = parser.parse_args()
-    
+
     # Handle non-interactive mode (for CI/CD)
     if args.non_interactive:
         print("PAAS National Prescription Extractor v2.0.7")
         print("Non-interactive mode - exiting successfully")
         return
-    
+
     # Check if running in non-interactive environment
     if not sys.stdin.isatty():
         print("PAAS National Prescription Extractor v2.0.7")

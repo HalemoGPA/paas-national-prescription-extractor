@@ -39,12 +39,12 @@ jobs:
         # Update version in setup.py
         sed -i 's/version=".*"/version="${{ steps.version.outputs.VERSION }}"/' setup.py
         # Update version in __init__.py
-        sed -i 's/__version__ = ".*"/__version__ = "${{ steps.version.outputs.VERSION }}"/' day_supply_national/__init__.py
+        sed -i 's/__version__ = ".*"/__version__ = "${{ steps.version.outputs.VERSION }}"/' paas_extractor/__init__.py
 
     - name: Run tests
       run: |
         python -c "
-        from day_supply_national.test_suite import ComprehensiveTestSuite
+        from paas_extractor.test_suite import ComprehensiveTestSuite
         suite = ComprehensiveTestSuite()
         results = suite.run_all_tests()
         if results['failed'] > 0:
