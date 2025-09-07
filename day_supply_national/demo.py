@@ -32,7 +32,7 @@ def print_result(result, case_num):
 
 def main():
     """Comprehensive demonstration"""
-    print_separator("DAY SUPPLY NATIONAL - COMPREHENSIVE DEMO")
+    print_separator("PAAS NATIONAL - COMPREHENSIVE DEMO")
     print("This demo shows the system processing various real-world prescription scenarios")
     print("including quantity validation, day supply calculations, and sig standardization.")
     

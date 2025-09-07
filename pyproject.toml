@@ -3,13 +3,16 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "day-supply-national"
+name = "paas-national-prescription-extractor"
 version = "2.0.0"
-description = "A comprehensive prescription data extraction and standardization system"
+description = "PAAS National - Comprehensive prescription data extraction and standardization system for day supply, quantity, and sig processing"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Day Supply National Team", email = "support@daysupplynational.com"}
+    {name = "Abdulhaleem Osama", email = "haleemborham3@gmail.com"}
+]
+maintainers = [
+    {name = "TJMLabs", email = "haleemborham3@gmail.com"}
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -24,7 +27,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-keywords = ["pharmacy", "prescription", "healthcare", "day-supply", "medication"]
+keywords = ["pharmacy", "prescription", "healthcare", "paas", "day-supply", "quantity", "sig", "medication", "extraction"]
 requires-python = ">=3.8"
 dependencies = [
     "pandas>=1.5.0",
@@ -34,15 +37,15 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/daysupplynational/prescription-extractor"
-Documentation = "https://github.com/daysupplynational/prescription-extractor/wiki"
-Repository = "https://github.com/daysupplynational/prescription-extractor"
-"Bug Reports" = "https://github.com/daysupplynational/prescription-extractor/issues"
+Homepage = "https://github.com/HalemoGPA/paas-national-prescription-extractor"
+Documentation = "https://github.com/HalemoGPA/paas-national-prescription-extractor/wiki"
+Repository = "https://github.com/HalemoGPA/paas-national-prescription-extractor"
+"Bug Reports" = "https://github.com/HalemoGPA/paas-national-prescription-extractor/issues"
 
 [project.scripts]
-day-supply-extractor = "day_supply_national.cli:main"
-day-supply-demo = "day_supply_national.demo:main"
-day-supply-test = "day_supply_national.test_suite:main"
+paas-extractor = "day_supply_national.cli:main"
+paas-demo = "day_supply_national.demo:main"
+paas-test = "day_supply_national.test_suite:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

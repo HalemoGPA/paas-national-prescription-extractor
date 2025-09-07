@@ -244,7 +244,7 @@ class ComprehensiveTestSuite:
     def run_all_tests(self):
         """Run all test categories"""
         print("\n" + "="*80)
-        print("DAY SUPPLY NATIONAL - COMPREHENSIVE TEST SUITE")
+        print("PAAS NATIONAL - COMPREHENSIVE TEST SUITE")
         print("="*80)
         print("\nThis will test medications in the database...")
         

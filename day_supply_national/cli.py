@@ -68,7 +68,7 @@ def save_results_to_file(results, filename=None):
 def main():
     """Main interactive interface"""
     print("="*60)
-    print("DAY SUPPLY NATIONAL - PRESCRIPTION DATA EXTRACTOR")
+    print("PAAS NATIONAL - PRESCRIPTION DATA EXTRACTOR")
     print("Interactive Processing Interface")
     print("="*60)
     print("\nInitializing system...")
@@ -194,7 +194,7 @@ def main():
         if final_save in ['y', 'yes']:
             save_results_to_file(results)
     
-    print("\n👋 Thank you for using Day Supply National!")
+    print("\n👋 Thank you for using PAAS National!")
 
 if __name__ == "__main__":
     main()

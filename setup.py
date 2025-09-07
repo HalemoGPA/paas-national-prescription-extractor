@@ -15,14 +15,14 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="day-supply-national",
+    name="paas-national-prescription-extractor",
     version="2.0.0",
-    author="Day Supply National Team",
-    author_email="support@daysupplynational.com",
-    description="A comprehensive prescription data extraction and standardization system",
+    author="Abdulhaleem Osama",
+    author_email="haleemborham3@gmail.com",
+    description="PAAS National - Comprehensive prescription data extraction and standardization system for day supply, quantity, and sig processing",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/daysupplynational/prescription-extractor",
+    url="https://github.com/HalemoGPA/paas-national-prescription-extractor",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -45,15 +45,15 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "day-supply-extractor=day_supply_national.cli:main",
-            "day-supply-demo=day_supply_national.demo:main",
-            "day-supply-test=day_supply_national.test_suite:main",
+            "paas-extractor=day_supply_national.cli:main",
+            "paas-demo=day_supply_national.demo:main",
+            "paas-test=day_supply_national.test_suite:main",
         ],
     },
-    keywords="pharmacy prescription healthcare day-supply medication",
+    keywords="pharmacy prescription healthcare paas day-supply quantity sig medication extraction",
     project_urls={
-        "Bug Reports": "https://github.com/daysupplynational/prescription-extractor/issues",
-        "Source": "https://github.com/daysupplynational/prescription-extractor",
-        "Documentation": "https://github.com/daysupplynational/prescription-extractor/wiki",
+        "Bug Reports": "https://github.com/HalemoGPA/paas-national-prescription-extractor/issues",
+        "Source": "https://github.com/HalemoGPA/paas-national-prescription-extractor",
+        "Documentation": "https://github.com/HalemoGPA/paas-national-prescription-extractor/wiki",
     },
 )

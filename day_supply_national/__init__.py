@@ -1,15 +1,17 @@
 """
-Day Supply National - Prescription Data Extractor
-================================================
+PAAS National - Prescription Data Extractor
+==========================================
 
 A comprehensive Python package for extracting, correcting, and standardizing 
-prescription data from various medication types.
+prescription data from various medication types. Handles day supply calculation,
+quantity validation, and sig standardization.
 
 Key Features:
 - 100% success rate across all medication types
 - Zero warnings - clean, reliable processing
 - Intelligent drug name matching with fuzzy logic
 - Accurate day supply calculations
+- Quantity validation and correction
 - Standardized sig/directions formatting
 - Support for 8+ medication categories
 
@@ -21,9 +23,10 @@ Usage:
     result = extractor.extract_prescription_data(prescription)
     
     print(f"Day Supply: {result.calculated_day_supply}")
+    print(f"Corrected Quantity: {result.corrected_quantity}")
     print(f"Standardized Sig: {result.standardized_sig}")
 
-Author: Day Supply National Team
+Author: Abdulhaleem Osama (TJMLabs)
 Version: 2.0.0
 License: MIT
 """
@@ -36,8 +39,8 @@ from .extractor import (
 )
 
 __version__ = "2.0.0"
-__author__ = "Day Supply National Team"
-__email__ = "support@daysupplynational.com"
+__author__ = "Abdulhaleem Osama"
+__email__ = "haleemborham3@gmail.com"
 __license__ = "MIT"
 
 __all__ = [

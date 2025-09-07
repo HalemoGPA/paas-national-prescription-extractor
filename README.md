@@ -1,12 +1,12 @@
-# Day Supply National - Prescription Data Extractor
+# PAAS National - Prescription Data Extractor
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Package Status](https://img.shields.io/badge/status-production--ready-brightgreen.svg)](https://github.com/daysupplynational/prescription-extractor)
+[![Package Status](https://img.shields.io/badge/status-production--ready-brightgreen.svg)](https://github.com/HalemoGPA/paas-national-prescription-extractor)
 
-A **production-ready Python package** for extracting, validating, and standardizing prescription data across all major medication types. Designed for pharmacies, healthcare systems, and insurance providers who need reliable, automated prescription processing.
+A **production-ready Python package** for extracting, validating, and standardizing prescription data across all major medication types. Handles **day supply calculation**, **quantity validation**, and **sig standardization**. Designed for pharmacies, healthcare systems, and insurance providers who need reliable, automated prescription processing.
 
-## 🎯 Why Day Supply National?
+## 🎯 Why PAAS National?
 
 **Perfect Reliability**: 100% success rate across 750+ test cases with zero warnings
 **Universal Coverage**: Supports 8+ medication categories with 1000+ drug database entries  
@@ -18,7 +18,7 @@ A **production-ready Python package** for extracting, validating, and standardiz
 ### Installation
 
 ```bash
-pip install day-supply-national
+pip install paas-national-prescription-extractor
 ```
 
 ### Basic Usage
@@ -127,19 +127,19 @@ for result in results:
 
 ### Interactive Processor
 ```bash
-day-supply-extractor
+paas-extractor
 ```
 Interactive prescription processing with menu-driven interface.
 
 ### Demo System
 ```bash
-day-supply-demo
+paas-demo
 ```
 Comprehensive demonstration across all medication types.
 
 ### Test Suite
 ```bash
-day-supply-test
+paas-test
 ```
 Run validation tests against the entire drug database.
 
@@ -363,6 +363,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Day Supply National** - *The definitive solution for prescription data extraction*
+**PAAS National** - *The definitive solution for prescription data extraction*
 
-*Built by pharmacists, for pharmacists. Trusted by healthcare systems nationwide.*
+*Built by TJMLabs. Trusted by healthcare systems nationwide.*
