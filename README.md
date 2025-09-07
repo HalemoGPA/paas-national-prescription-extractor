@@ -304,14 +304,13 @@ def analyze_medication_adherence(patient_prescriptions):
 ## 📚 Documentation
 
 ### **API Reference**
-- [Complete API Documentation](docs/api.md)
-- [Medication Type Guide](docs/medication-types.md)
-- [Integration Examples](docs/integration.md)
+- [Complete API Documentation](docs/API.md)
+- [Medication Type Guide](docs/MEDICATION_TYPES.md)
 
-### **Data Sources**
-- [Drug Database Schema](docs/database-schema.md)
-- [PBM Guidelines](docs/pbm-guidelines.md)
-- [FTU Dosing Reference](docs/ftu-dosing.md)
+### **Package Information**
+- [Package Summary](PACKAGE_SUMMARY.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
 
 ## 🤝 Contributing
 
@@ -319,16 +318,14 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Development Setup
 ```bash
-git clone https://github.com/daysupplynational/prescription-extractor.git
-cd prescription-extractor
+git clone https://github.com/HalemoGPA/paas-national-prescription-extractor.git
+cd paas-national-prescription-extractor
 pip install -e .
-pip install -r requirements-dev.txt
 ```
 
 ### Running Tests
 ```bash
-python -m pytest tests/
-day-supply-test
+paas-test
 ```
 
 ## 📄 License
@@ -337,11 +334,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Documentation**: [GitHub Wiki](https://github.com/daysupplynational/prescription-extractor/wiki)
-- **Issues**: [GitHub Issues](https://github.com/daysupplynational/prescription-extractor/issues)
-- **Email**: support@daysupplynational.com
+- **Documentation**: [GitHub Wiki](https://github.com/HalemoGPA/paas-national-prescription-extractor/wiki)
+- **Issues**: [GitHub Issues](https://github.com/HalemoGPA/paas-national-prescription-extractor/issues)
+- **Email**: haleemborham3@gmail.com
 
-## 🏆 Why Choose Day Supply National?
+## 🏆 Why Choose PAAS National?
 
 ### **For Pharmacies**
 - ✅ **Eliminate Manual Calculations**: Automated day supply for all medication types
