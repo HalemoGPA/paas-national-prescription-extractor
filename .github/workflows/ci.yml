@@ -61,7 +61,7 @@ jobs:
         from paas_extractor.test_suite import ComprehensiveTestSuite
         suite = ComprehensiveTestSuite()
         results = suite.run_all_tests()
-        print(f'Tests: {results[\"total_tests\"]}, Passed: {results[\"passed\"]}, Failed: {results[\"failed\"]}')
+        print('Tests: ' + str(results['total_tests']) + ', Passed: ' + str(results['passed']) + ', Failed: ' + str(results['failed']))
         if results['failed'] > 0:
             exit(1)
         print('All tests passed!')
