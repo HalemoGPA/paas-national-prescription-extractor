@@ -29,7 +29,7 @@ Usage:
     print(f"Standardized Sig: {result.standardized_sig}")
 
 Author: Abdulhaleem Osama (TJMLabs)
-Version: 2.0.3
+Version: 2.0.4
 License: MIT
 """
 
@@ -40,7 +40,7 @@ from .extractor import (
     PrescriptionInput,
 )
 
-__version__ = "2.0.3"
+__version__ = "2.0.4"
 __author__ = "Abdulhaleem Osama"
 __email__ = "haleemborham3@gmail.com"
 __license__ = "MIT"

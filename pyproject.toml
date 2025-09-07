@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "paas-national-prescription-extractor"
-version = "2.0.3"
+version = "2.0.4"
 description = "PAAS National - Comprehensive prescription data extraction and standardization system for day supply, quantity, and sig processing"
 readme = "README.md"
 license = {text = "MIT"}
