@@ -16,7 +16,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="paas-national-prescription-extractor",
-    version="2.0.5",
+    version="2.0.6",
     author="Abdulhaleem Osama",
     author_email="haleemborham3@gmail.com",
     description="PAAS National - Comprehensive prescription data extraction and standardization system for day supply, quantity, and sig processing",
