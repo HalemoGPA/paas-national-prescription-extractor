@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
@@ -44,9 +48,9 @@ jobs:
         suite = ComprehensiveTestSuite()
         results = suite.run_all_tests()
         if results['failed'] > 0:
-            print(f'❌ Tests failed: {results[\"failed\"]} failures')
+            print(f'Tests failed: {results[\"failed\"]} failures')
             exit(1)
-        print(f'✅ All {results[\"total_tests\"]} tests passed!')
+        print(f'All {results[\"total_tests\"]} tests passed!')
         "
 
     - name: Build package
@@ -81,29 +85,36 @@ jobs:
         # Save to file for GitHub release
         with open('release_notes.md', 'w') as f:
             f.write(changelog)
-        print('✅ Changelog extracted')
+        print('Changelog extracted')
         "
 
     - name: Create GitHub Release
-      uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: PAAS National v${{ steps.version.outputs.VERSION }}
-        body_path: release_notes.md
-        draft: false
-        prerelease: false
-
-    - name: Upload Release Assets
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/paas_national_prescription_extractor-${{ steps.version.outputs.VERSION }}.tar.gz
-        asset_name: paas-national-prescription-extractor-${{ steps.version.outputs.VERSION }}.tar.gz
-        asset_content_type: application/gzip
+      run: |
+        # Try GitHub CLI first (modern approach)
+        if gh release create v${{ steps.version.outputs.VERSION }} \
+          --title "PAAS National v${{ steps.version.outputs.VERSION }}" \
+          --notes-file release_notes.md \
+          --latest \
+          dist/* 2>/dev/null; then
+          echo "Release created successfully with GitHub CLI"
+        else
+          echo "GitHub CLI failed, trying REST API..."
+          # Fallback to REST API
+          RELEASE_NOTES=$(cat release_notes.md | jq -Rs .)
+          curl -X POST \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/releases \
+            -d "{
+              \"tag_name\": \"v${{ steps.version.outputs.VERSION }}\",
+              \"name\": \"PAAS National v${{ steps.version.outputs.VERSION }}\",
+              \"body\": $RELEASE_NOTES,
+              \"draft\": false,
+              \"prerelease\": false
+            }"
+        fi
 
     - name: Publish to PyPI
       env:
