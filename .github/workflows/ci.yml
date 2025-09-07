@@ -47,7 +47,7 @@ jobs:
 
     - name: Test package import
       run: |
-        python -c "from day_supply_national import PrescriptionDataExtractor, PrescriptionInput; print('✅ Package import successful!')"
+        python -c "from day_supply_national import PrescriptionDataExtractor, PrescriptionInput; print('Package import successful!')"
 
     - name: Test CLI commands
       run: |
@@ -64,7 +64,7 @@ jobs:
         print(f'Tests: {results[\"total_tests\"]}, Passed: {results[\"passed\"]}, Failed: {results[\"failed\"]}')
         if results['failed'] > 0:
             exit(1)
-        print('✅ All tests passed!')
+        print('All tests passed!')
         "
 
     - name: Test basic functionality
@@ -77,7 +77,7 @@ jobs:
         assert result.calculated_day_supply > 0, 'Day supply should be positive'
         assert result.corrected_quantity > 0, 'Quantity should be positive'
         assert len(result.standardized_sig) > 0, 'Sig should not be empty'
-        print(f'✅ Basic functionality test passed: {result.calculated_day_supply} days')
+        print(f'Basic functionality test passed: {result.calculated_day_supply} days')
         "
 
   build:

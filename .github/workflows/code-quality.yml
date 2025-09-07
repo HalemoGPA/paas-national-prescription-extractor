@@ -79,17 +79,17 @@ jobs:
         for link in links[:5]:  # Check first 5 links
             if not link.startswith('http'):
                 print(f'Internal link: {link}')
-        print('✅ README link check completed')
+        print('README link check completed')
         "
 
     - name: Validate package metadata
       run: |
         python -c "
         from day_supply_national import __version__, __author__, __email__
-        assert __version__ == '2.0.0', f'Version mismatch: {__version__}'
+        assert __version__ == '2.0.1', f'Version mismatch: {__version__}'
         assert __author__ == 'Abdulhaleem Osama', f'Author mismatch: {__author__}'
         assert __email__ == 'haleemborham3@gmail.com', f'Email mismatch: {__email__}'
-        print('✅ Package metadata validation passed')
+        print('Package metadata validation passed')
         "
 
     - name: Check CLI help messages
@@ -102,7 +102,7 @@ jobs:
         for cmd in commands:
             try:
                 result = subprocess.run([cmd, '--help'], capture_output=True, text=True, timeout=10)
-                print(f'✅ {cmd} help available')
+                print(f'{cmd} help available')
             except Exception as e:
-                print(f'⚠️ {cmd} help check: {e}')
+                print(f'WARNING: {cmd} help check: {e}')
         "
