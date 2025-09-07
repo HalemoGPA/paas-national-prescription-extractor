@@ -14,7 +14,6 @@ Version: 2.0 - Perfect Edition
 """
 
 import logging
-import math
 import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
@@ -390,7 +389,6 @@ class PrescriptionDataExtractor:
         self, drug_data: Dict, quantity: float, sig: str
     ) -> Tuple[float, int, str]:
         """Process nasal inhaler prescription - no warnings"""
-        min_sprays = drug_data.get("Min_Total_Sprays", 0)
         max_sprays = drug_data.get("Max_Total_Sprays", 0)
 
         # Extract dosing information from sig
@@ -474,7 +472,6 @@ class PrescriptionDataExtractor:
         """Process insulin prescription - no warnings"""
         total_units = drug_data.get("Total_Units_per_Package", 0)
         beyond_use_days = drug_data.get("Beyond_Use_Date_Days", 28)
-        dosage_form = drug_data.get("Dosage_Form", "")
 
         # Extract units from sig
         extracted = self._extract_numbers_from_sig(sig)
@@ -589,7 +586,6 @@ class PrescriptionDataExtractor:
     ) -> Tuple[float, int, str]:
         """Process injectable medication - no warnings"""
         # Extract dosing information
-        extracted = self._extract_numbers_from_sig(sig)
         frequency = self._calculate_frequency_per_day(sig)
 
         # Accept prescribed quantity

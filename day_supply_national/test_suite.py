@@ -6,11 +6,6 @@ Test Suite for Day Supply National
 Comprehensive testing framework for the prescription data extraction system.
 """
 
-import json
-import os
-from datetime import datetime
-from typing import Dict, List, Tuple
-
 import pandas as pd
 
 from .extractor import PrescriptionDataExtractor, PrescriptionInput
@@ -40,7 +35,7 @@ class ComprehensiveTestSuite:
                 "day_supply_national", "data/nasal_inhalers.csv"
             )
             df = pd.read_csv(data_path)
-        except:
+        except Exception:
             return test_cases
 
         # Test different sig patterns for each drug
@@ -71,7 +66,7 @@ class ComprehensiveTestSuite:
                 "day_supply_national", "data/oral_inhaler_products.csv"
             )
             df = pd.read_csv(data_path)
-        except:
+        except Exception:
             return test_cases
 
         sig_patterns = [
@@ -100,7 +95,7 @@ class ComprehensiveTestSuite:
                 "day_supply_national", "data/insulin_products.csv"
             )
             df = pd.read_csv(data_path)
-        except:
+        except Exception:
             return test_cases
 
         sig_patterns = [

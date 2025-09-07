@@ -2,7 +2,7 @@
 PAAS National - Prescription Data Extractor
 ==========================================
 
-A comprehensive Python package for extracting, correcting, and standardizing 
+A comprehensive Python package for extracting, correcting, and standardizing
 prescription data from various medication types. Handles day supply calculation,
 quantity validation, and sig standardization.
 
@@ -16,12 +16,14 @@ Key Features:
 - Support for 8+ medication categories
 
 Usage:
-    from day_supply_national import PrescriptionDataExtractor, PrescriptionInput
-    
+    from day_supply_national import (
+        PrescriptionDataExtractor, PrescriptionInput
+    )
+
     extractor = PrescriptionDataExtractor()
     prescription = PrescriptionInput("Humalog", "5", "15 units tid")
     result = extractor.extract_prescription_data(prescription)
-    
+
     print(f"Day Supply: {result.calculated_day_supply}")
     print(f"Corrected Quantity: {result.corrected_quantity}")
     print(f"Standardized Sig: {result.standardized_sig}")
